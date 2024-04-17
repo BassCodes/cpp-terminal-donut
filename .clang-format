@@ -1,0 +1,6 @@
+ColumnLimit: 140
+IndentWidth: 4
+NamespaceIndentation: All
+FixNamespaceComments: false
+AllowShortFunctionsOnASingleLine: None
+AllowShortCaseLabelsOnASingleLine: true
