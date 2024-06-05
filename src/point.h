@@ -1,8 +1,9 @@
 // Alexander Bass
 // Created 4/16/24
+// Modified 4/17/24
 #pragma once
-#include "rgb.h"
 #include "types.h"
+#include "vec3.h"
 class Point {
   private:
     f64 x;
@@ -21,10 +22,23 @@ class Point {
         g = 1.0;
         b = 1.0;
     }
+    Point() {
+        x = 0.0;
+        y = 0.0;
+        z = 0.0;
+        r = 0.0;
+        g = 0.0;
+        b = 0.0;
+    }
     void set_xyz(f64 _x, f64 _y, f64 _z) {
         x = _x;
         y = _y;
         z = _z;
+    };
+    void set_xyz(vec3 pos) {
+        x = pos.i;
+        y = pos.j;
+        z = pos.k;
     };
     void rotate_x(f64 angle);
     void rotate_y(f64 angle);
@@ -46,6 +60,10 @@ class Point {
         return z;
     };
 
+    vec3 get_xyz() const {
+        return vec3(x, y, z);
+    }
+
     f64 get_r() const {
         return r;
     }
@@ -54,6 +72,10 @@ class Point {
     }
     f64 get_b() const {
         return b;
+    }
+
+    vec3 get_rgb() const {
+        return vec3(r, g, b);
     }
 
     void translate_x(f64 dx) {
@@ -72,10 +94,10 @@ class Point {
         b = _b;
         return this;
     };
-    Point *set_rgb(rgb col) {
-        r = col.r;
-        g = col.g;
-        b = col.b;
+    Point *set_rgb(vec3 col) {
+        r = col.i;
+        g = col.j;
+        b = col.k;
         return this;
     };
 };
